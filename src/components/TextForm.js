@@ -41,11 +41,11 @@ export default function TextForm(props) {
 
   return (
     <>
- <div className='container'> 
+ <div className='container' style={{color:props.mode==='dark'?'white':'black'}} > 
     <h2>{props.heading}</h2> 
         
      <div className="mb-3">
-      <textarea className="form-control" placeholder='Enter text here' value={text} onChange={handleOnChange} id="mybox" rows="7" ></textarea>
+      <textarea className="form-control" placeholder='Enter text here' value={text} onChange={handleOnChange} style={{backgroundColor:props.mode==='dark'?'grey':'white', color:props.mode==='dark'?'white':'black'}} id="mybox" rows="7" ></textarea>
      </div>
        <button className='btn btn-primary mx-1' onClick={handleUpClick}>Convert to UpperCase</button>
        <button className='btn btn-primary mx-1' onClick={handleDownClick}>Convert to LowerCase</button>
@@ -53,11 +53,11 @@ export default function TextForm(props) {
        <button className='btn btn-primary mx-1' onClick={handleCopy}>Copy Text</button>
        <button className='btn btn-primary mx-1' onClick={handleExtraSpace}>Extra Space</button>
      </div>
-<div className='container my-2'>
+<div className='container my-2' style={{color:props.mode==='dark'?'white':'black'}}>
     <h2>Your text summary</h2>
     <p>{text.split(' ').length} words AND {text.length} characters</p>
-    <h2>Preview</h2><script>console.log(text)</script>
-    <p>{text}</p>
+    <h2 >Preview</h2><script>console.log(text)</script>
+    <p>{text.length>0?text:'Enter something to Preview'}</p>
 </div>
 
 </>
